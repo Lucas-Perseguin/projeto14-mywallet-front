@@ -31,8 +31,14 @@ const Value = styled.h2`
 function StatementFragment({ statement, statements, setStatements }) {
   const { date, name, value, isIncome, _id } = statement;
   function handleDelete() {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      },
+    };
     const promisse = axios.delete(
-      `${process.env.REACT_APP_BACKEND_URL}/statements/${_id}`
+      `${process.env.REACT_APP_BACKEND_URL}/statements/${_id}`,
+      config
     );
     promisse.then((response) => {
       statements.forEach((element, index) => {

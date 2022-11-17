@@ -4,6 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { mainPurple, secondaryPurple } from '../../Constants.js';
 import LoadingPage from '../LoadingPage.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const Container = styled.div`
   width: 100%;

@@ -6,6 +6,9 @@ import { mainPurple, secondaryPurple } from '../../Constants';
 import LoadingPage from '../LoadingPage';
 import StatementFragment from './StatementFragment';
 import { incomeGreen, outflowRed } from '../../Constants';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const Container = styled.div`
   width: 100%;
@@ -119,8 +122,14 @@ function Statement() {
     navigate('/');
   }
   useEffect(() => {
+    const config = {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      },
+    };
     const promisse = axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/statements`
+      `${process.env.REACT_APP_BACKEND_URL}/statements`,
+      config
     );
     promisse.then((response) => {
       setLoading(false);
@@ -168,6 +177,7 @@ function Statement() {
           {statements ? (
             statements.map((statement) => (
               <StatementFragment
+                key={statement._id}
                 statement={statement}
                 statements={statements}
                 setStatements={setStatements}

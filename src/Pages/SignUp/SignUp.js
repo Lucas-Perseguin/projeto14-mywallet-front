@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { mainPurple, secondaryPurple } from '../../Constants';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const Container = styled.div`
   width: 100%;
