@@ -16,6 +16,7 @@ const Container = styled.div`
   h2 {
     font-weight: 700;
     font-size: 15px;
+    color: black;
   }
 `;
 
@@ -34,7 +35,9 @@ const Form = styled.div`
     padding-left: 10px;
     box-sizing: border-box;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 500;
+    border-radius: 5px;
+    border: none;
   }
   button {
     width: 100%;
@@ -68,6 +71,8 @@ function Login() {
           `Erro: ${error.response.status}\nAlgo deu errado, espere um pouco e tente de novo ou acesse nosso FAQ e procure pelo código do erro presente!`
         );
       });
+    } else {
+      alert('Todos os campos devem estar preenchidos!');
     }
   }
   if (isLoggedIn) {

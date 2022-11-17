@@ -15,6 +15,7 @@ const Container = styled.div`
   h2 {
     font-weight: 700;
     font-size: 15px;
+    color: black;
   }
 `;
 
@@ -33,7 +34,9 @@ const Form = styled.div`
     padding-left: 10px;
     box-sizing: border-box;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 500;
+    border-radius: 5px;
+    border: none;
   }
   button {
     width: 100%;
