@@ -60,7 +60,10 @@ function Login() {
   const navigate = useNavigate();
   function handleLogin() {
     if (email && password) {
-      const promisse = axios.post('absk', { email, password });
+      const promisse = axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/sign-in`,
+        { email, password }
+      );
       promisse.then((response) => {
         localStorage.setItem('email', `${email}`);
         localStorage.setItem('token', `${response.data.token}`);

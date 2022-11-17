@@ -60,7 +60,10 @@ function SignUp() {
   function handleSignUp() {
     if (name && email && password && comparePassword) {
       if (password === comparePassword) {
-        const promisse = axios.post('alshdkjlah', { name, email, password });
+        const promisse = axios.post(
+          `${process.env.REACT_APP_BACKEND_URL}/sign-up`,
+          { name, email, password }
+        );
         promisse.then((response) => {
           localStorage.setItem('name', `${name}`);
           localStorage.setItem('email', `${email}`);
