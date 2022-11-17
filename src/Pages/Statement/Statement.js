@@ -167,7 +167,11 @@ function Statement() {
         <StatementSheet statements={statements}>
           {statements ? (
             statements.map((statement) => (
-              <StatementFragment statement={statement} />
+              <StatementFragment
+                statement={statement}
+                statements={statements}
+                setStatements={setStatements}
+              />
             ))
           ) : (
             <h2>Não há registros de entrada ou saída</h2>
@@ -182,11 +186,11 @@ function Statement() {
           ) : null}
         </StatementSheet>
         <BottomMenu>
-          <div>
+          <div onClick={() => navigate('inserir/entrada')}>
             <ion-icon name="add-circle-outline"></ion-icon>
             <h2>Nova entrada</h2>
           </div>
-          <div>
+          <div onClick={() => navigate('inserir/saida')}>
             <ion-icon name="remove-circle-outline"></ion-icon>
             <h2>Nova saída</h2>
           </div>
