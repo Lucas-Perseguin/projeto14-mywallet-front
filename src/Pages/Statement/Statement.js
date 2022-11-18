@@ -112,7 +112,7 @@ function Statement() {
   const [statements, setStatements] = useState([]);
   const [balance, setBalance] = useState(0);
   const [isBalancePositive, setBalancePositive] = false;
-  const name = localStorage.getItem('name');
+  const name = localStorage.getItem('username');
   const navigate = useNavigate();
   if (!name) {
     navigate('/');

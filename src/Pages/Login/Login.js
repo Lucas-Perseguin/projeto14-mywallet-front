@@ -70,6 +70,7 @@ function Login() {
       promisse.then((response) => {
         localStorage.setItem('email', `${email}`);
         localStorage.setItem('token', `${response.data.token}`);
+        localStorage.setItem('username', `${response.data.username}`);
         navigate('/extrato');
       });
       promisse.catch((error) => {

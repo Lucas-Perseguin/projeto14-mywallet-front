@@ -68,7 +68,7 @@ function SignUp() {
           { name, email, password }
         );
         promisse.then((response) => {
-          localStorage.setItem('name', `${name}`);
+          localStorage.setItem('username', `${name}`);
           localStorage.setItem('email', `${email}`);
           localStorage.setItem('token', `${response.data.token}`);
           navigate('/extrato');

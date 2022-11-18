@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { incomeGreen, outflowRed } from '../../Constants';
 
@@ -15,7 +16,7 @@ const Date = styled.h2`
   margin-right: 6px;
 `;
 
-const Name = styled.h2`
+const Description = styled.h2`
   font-weight: 400;
   font-size: 16px;
   color: black;
@@ -29,7 +30,8 @@ const Value = styled.h2`
 `;
 
 function StatementFragment({ statement, statements, setStatements }) {
-  const { date, name, value, isIncome, _id } = statement;
+  const { date, description, value, isIncome, _id } = statement;
+  const navigate = useNavigate();
   function handleDelete() {
     const config = {
       headers: {
@@ -54,11 +56,14 @@ function StatementFragment({ statement, statements, setStatements }) {
       );
     });
   }
+  function handleEdit() {
+    navigate(`/editar/${_id}`);
+  }
   return (
     <Container>
-      <div>
+      <div onClick={handleEdit}>
         <Date>{date}</Date>
-        <Name>{name}</Name>
+        <Description>{description}</Description>
       </div>
       <div>
         <Value isIncome={isIncome}>{value}</Value>

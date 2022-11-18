@@ -13,8 +13,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/cadastro" element={<SignUp />} />
         <Route path="/extrato" element={<Statement />} />
-        <Route path="/inserir/:isIncome" element={<Insert />} />
-        <Route path="/editar/:entryId" element={<Edit />} />
+        <Route path="/inserir/:type" element={<Insert />} />
+        <Route path="/editar/:statementId" element={<Edit />} />
       </Routes>
     </BrowserRouter>
   );
