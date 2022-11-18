@@ -35,6 +35,7 @@ function StatementFragment({ statement, statements, setStatements }) {
   function handleDelete() {
     const config = {
       headers: {
+        User: localStorage.getItem('username'),
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       },
     };

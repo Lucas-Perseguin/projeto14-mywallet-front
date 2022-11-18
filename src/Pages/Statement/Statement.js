@@ -124,6 +124,7 @@ function Statement() {
   useEffect(() => {
     const config = {
       headers: {
+        User: localStorage.getItem('username'),
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       },
     };
