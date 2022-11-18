@@ -112,9 +112,9 @@ function Statement() {
   const [statements, setStatements] = useState([]);
   const [balance, setBalance] = useState(0);
   const [isBalancePositive, setBalancePositive] = false;
-  const name = localStorage.getItem('username');
+  const username = localStorage.getItem('username');
   const navigate = useNavigate();
-  if (!name) {
+  if (!username) {
     navigate('/');
   }
   function handleLogout() {
@@ -168,7 +168,7 @@ function Statement() {
     return (
       <Container>
         <TopMenu>
-          <h2>Olá, {name}!</h2>
+          <h2>Olá, {username}!</h2>
           <LogoutButton onClick={handleLogout}>
             <ion-icon name="exit-outline"></ion-icon>
           </LogoutButton>
