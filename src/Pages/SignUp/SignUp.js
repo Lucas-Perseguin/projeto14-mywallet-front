@@ -55,20 +55,20 @@ const Form = styled.div`
 `;
 
 function SignUp() {
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [comparePassword, setComparePassword] = useState('');
   const navigate = useNavigate();
   function handleSignUp() {
-    if (name && email && password && comparePassword) {
+    if (username && email && password && comparePassword) {
       if (password === comparePassword) {
         const promisse = axios.post(
           `${process.env.REACT_APP_BACKEND_URL}/sign-up`,
-          { name, email, password }
+          { username, email, password }
         );
         promisse.then((response) => {
-          localStorage.setItem('username', `${name}`);
+          localStorage.setItem('username', `${username}`);
           localStorage.setItem('email', `${email}`);
           localStorage.setItem('token', `${response.data.token}`);
           navigate('/extrato');
@@ -91,7 +91,7 @@ function SignUp() {
       <Form>
         <input
           placeholder="Nome"
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event) => setUsername(event.target.value)}
         ></input>
         <input
           placeholder="E-mail"
